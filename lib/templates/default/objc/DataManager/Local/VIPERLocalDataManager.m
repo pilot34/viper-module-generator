@@ -3,8 +3,8 @@
 // Copyright (c) YEAR AUTHOR. All rights reserved.
 //
 
-#import "VIPERInteractor.h"
+#import "VIPERLocalDataManager.h"
 
-@implementation VIPERInteractor
+@implementation VIPERLocalDataManager
 
 @end

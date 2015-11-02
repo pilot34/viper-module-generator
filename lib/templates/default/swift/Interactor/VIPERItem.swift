@@ -3,8 +3,11 @@
 // Copyright (c) YEAR AUTHOR. All rights reserved.
 //
 
-#import "VIPERInteractor.h"
+import Foundation
 
-@implementation VIPERInteractor
-
-@end
+struct VIPERItem
+{
+    /**
+    *  Attributes here
+    */
+}

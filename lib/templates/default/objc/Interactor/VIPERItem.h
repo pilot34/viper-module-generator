@@ -3,8 +3,8 @@
 // Copyright (c) YEAR AUTHOR. All rights reserved.
 //
 
-#import "VIPERInteractor.h"
+#import <Foundation/Foundation.h>
 
-@implementation VIPERInteractor
+@interface VIPERItem : NSObject
 
 @end
