@@ -10,10 +10,19 @@
 #import "VIPERViewController.h"
 #import "VIPERPresenter.h"
 #import "VIPERInteractor.h"
+#import "VIPERWireframe.h"
 #import "StoryboardProvider.h"
-#import "RootRouter.h"
 
 @implementation VIPERAssembly
+
+- (Module *)newsModule {
+    return [TyphoonDefinition withClass:Module.class configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:@selector(interactor) with:self.viperInteractor];
+        [definition injectProperty:@selector(viewController) with:self.viperViewController];
+        [definition injectProperty:@selector(presenter) with:self.viperPresenter];
+        [definition injectProperty:@selector(wireframe) with:self.viperWireframe];
+    }];
+}
 
 - (UIViewController<VIPERViewControllerProtocol> *)viperViewController {
     return [TyphoonDefinition withFactory:StoryboardProvider.mainStoryboard
@@ -22,6 +31,7 @@
                                    [factoryMethod injectParameterWith:NSStringFromClass(VIPERViewController.class)];
                                } configuration:^(TyphoonFactoryDefinition *definition) {
                                    [definition injectProperty:@selector(presenter) with:self.viperPresenter];
+                                   definition.scope = TyphoonScopeObjectGraph;
                                }];
 }
 
@@ -39,6 +49,13 @@
 
 - (id<VIPERInteractorProtocol>)viperInteractor {
     return [TyphoonDefinition withClass:VIPERInteractor.class];
+}
+
+- (id<VIPERWireframeProtocol>)viperWireframe {
+    return [TyphoonDefinition withClass:VIPERWireframe.class configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:@selector(rootRouter)];
+        [definition injectProperty:@selector(presenter) with:self.viperPresenter];
+    }];
 }
 
 @end

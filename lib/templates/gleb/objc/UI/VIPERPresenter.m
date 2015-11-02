@@ -9,14 +9,20 @@
 
 @interface VIPERPresenter ()
 
-@property (weak, nonatomic) id<RootRouterProtocol, VIPERWireframeProtocol> wireframe;
+@property (strong, nonatomic) id<VIPERWireframeProtocol> wireframe;
 @property (strong, nonatomic) id<VIPERInteractorProtocol> interactor;
+
 @property (weak, nonatomic) id<VIPERViewControllerProtocol> viewController;
 
 @end
 
 @implementation VIPERPresenter
 
+
+#pragma mark - VIPERPresenterProtocol
+
+
 #pragma mark - VIPERViewControllerDelegate
+
 
 @end

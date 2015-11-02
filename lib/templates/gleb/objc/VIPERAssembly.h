@@ -7,10 +7,10 @@
 
 #import <Typhoon/Typhoon.h>
 #import "VIPERProtocols.h"
+#import "Module.h"
 
 @interface VIPERAssembly : TyphoonAssembly
 
-- (UIViewController<VIPERViewControllerProtocol> *)viperViewController;
-- (id<VIPERPresenterProtocol>)viperPresenter;
+- (Module *)viperModule;
 
 @end

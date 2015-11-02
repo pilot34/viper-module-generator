@@ -8,7 +8,10 @@
 #import <UIKit/UIKit.h>
 #import "VIPERProtocols.h"
 
-@interface VIPERViewController : UIViewController<VIPERViewControllerProtocol>
+@interface VIPERViewController : UIViewController
+    <
+    VIPERViewControllerProtocol
+    >
 
 @property (strong, nonatomic, readonly) id<VIPERViewControllerDelegate> presenter;
 

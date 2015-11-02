@@ -7,7 +7,6 @@
 
 #import <Foundation/Foundation.h>
 #import "VIPERProtocols.h"
-#import "AppProtocols.h"
 
 @interface VIPERPresenter : NSObject
     <
@@ -15,8 +14,9 @@
     VIPERViewControllerDelegate
     >
 
-@property (weak, nonatomic, readonly) id<RootRouterProtocol, VIPERWireframeProtocol> wireframe;
+@property (strong, nonatomic, readonly) id<VIPERWireframeProtocol> wireframe;
 @property (strong, nonatomic, readonly) id<VIPERInteractorProtocol> interactor;
+
 @property (weak, nonatomic, readonly) id<VIPERViewControllerProtocol> viewController;
 
 @end

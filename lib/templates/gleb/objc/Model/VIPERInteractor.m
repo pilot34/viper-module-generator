@@ -9,6 +9,8 @@
 
 @implementation VIPERInteractor
 
+
 #pragma mark - VIPERInteractorProtocol
+
 
 @end

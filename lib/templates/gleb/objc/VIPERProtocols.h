@@ -14,12 +14,18 @@
 
 @end
 
+
 @protocol VIPERPresenterProtocol <NSObject>
 
 @end
 
 
 @protocol VIPERWireframeProtocol <NSObject>
+
+@end
+
+
+@protocol VIPERWireframeDelegate <NSObject>
 
 @end
 
