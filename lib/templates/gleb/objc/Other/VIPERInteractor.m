@@ -7,6 +7,10 @@
 
 #import "VIPERInteractor.h"
 
+@interface VIPERInteractor()
+
+@end
+
 @implementation VIPERInteractor
 
 
