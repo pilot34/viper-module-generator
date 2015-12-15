@@ -17,10 +17,10 @@
 
 - (Module *)viperModule {
     return [TyphoonDefinition withClass:Module.class configuration:^(TyphoonDefinition *definition) {
-        [definition injectProperty:@selector(interactor) with:self.viperInteractor];
-        [definition injectProperty:@selector(viewController) with:self.viperViewController];
-        [definition injectProperty:@selector(presenter) with:self.viperPresenter];
-        [definition injectProperty:@selector(wireframe) with:self.viperWireframe];
+        [definition injectProperty:@selector(interactor) with:[self viperInteractor]];
+        [definition injectProperty:@selector(viewController) with:[self viperViewController]];
+        [definition injectProperty:@selector(presenter) with:[self viperPresenter]];
+        [definition injectProperty:@selector(wireframe) with:[self viperWireframe]];
     }];
 }
 
@@ -30,7 +30,7 @@
                                parameters:^(TyphoonMethod *factoryMethod) {
                                    [factoryMethod injectParameterWith:NSStringFromClass(VIPERViewController.class)];
                                } configuration:^(TyphoonFactoryDefinition *definition) {
-                                   [definition injectProperty:@selector(presenter) with:self.viperPresenter];
+                                   [definition injectProperty:@selector(presenter) with:[self viperPresenter]];
                                    
                                    definition.scope = TyphoonScopeObjectGraph;
                                }];
@@ -39,13 +39,13 @@
 - (id<VIPERPresenterProtocol>)viperPresenter {
     return [TyphoonDefinition withClass:VIPERPresenter.class configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(wireframe)
-                              with:self.viperWireframe];
+                              with:[self viperWireframe]];
         
         [definition injectProperty:@selector(viewController)
-                              with:self.viperViewController];
+                              with:[self viperViewController]];
         
         [definition injectProperty:@selector(interactor)
-                              with:self.viperInteractor];
+                              with:[self viperInteractor]];
     }];
 }
 
@@ -58,7 +58,7 @@
         [definition injectProperty:@selector(rootRouter)];
         
         [definition injectProperty:@selector(presenter)
-                              with:self.viperPresenter];
+                              with:[self viperPresenter]];
     }];
 }
 
